@@ -15,12 +15,12 @@ export default function HomePage() {
           <>
             <button 
               onClick={() => open()}
-              className="bg-black"
+              className="bg-black text-white"
             >
               Connect
             </button>
           </>
-          <div className="bg-black" >
+          <div className="bg-black text-white" >
           {isConnected ? `${address} Connected` : "Not Connected"}
         </div>
         </div>
