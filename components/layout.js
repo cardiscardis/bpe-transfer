@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     <>
         <main className={`w-full bg-white bg-cover h-screen flex flex-col overflow-hidden`}>
             {children}
-        </main>Ò
+        </main>
     </>
   )
 }
