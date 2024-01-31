@@ -1,29 +1,38 @@
 
-import { useWeb3Modal } from "@web3modal/wagmi/react";
-
-import { useAccount } from "wagmi";
-
-
 export default function HomePage() {
-
-  const { open } = useWeb3Modal();
-  const { address, isConnected } = useAccount();
 
   return (
     <>
-        <div className="flex flex-col justify-center align-center">
-          <>
-            <button 
-              onClick={() => open()}
-              className="bg-black text-white"
-            >
-              Connect
-            </button>
-          </>
-          <div className="bg-black text-white" >
-          {isConnected ? `${address} Connected` : "Not Connected"}
-        </div>
-        </div>
+      <div className="flex-col justify-center align-center pt-3">
+        <input
+          id="cela"
+          type="text"
+          className='w-40 rounded-3xl text-center text-[#223A7E] pt-1 items-center justify-center text-black text-xl bg-[#DCE5FF]'
+        />
+        CELA
+        <button
+          onClick={() => {}}
+          className={`bg-[#A5BCFF] rounded-[17px] `}>
+          <div className={`bg-[#3166FF] rounded-[15px] pt-2 pb-1 px-3 text-[#FFFFFF] text-md font-octarinebold cursor-pointer`}>
+            submit
+          </div>
+        </button>
+      </div>
+      <div className="flex-col justify-center align-center pt-3">
+        <input
+          id="matic"
+          type="text"
+          className='w-40 rounded-3xl text-center text-[#223A7E] pt-1 items-center justify-center text-black text-xl bg-[#DCE5FF]'
+        />
+        MATIC
+        <button
+          onClick={() => {}}
+          className={`bg-[#A5BCFF] rounded-[17px] `}>
+          <div className={`bg-[#3166FF] rounded-[15px] pt-2 pb-1 px-3 text-[#FFFFFF] text-md font-octarinebold cursor-pointer`}>
+            submit
+          </div>
+        </button>
+      </div> 
     </>
   )
 }
