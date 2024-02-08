@@ -1,9 +1,34 @@
+import React from "react"
 
 export default function HomePage() {
 
+  const [parameters, setParameters] = React.useState()
+
+  React.useEffect(() => {
+    const handleStorageChange = () => {
+      // Update parameters state when local storage changes
+      const isConnected = localStorage.getItem('isConnected');
+      const maticBalance = localStorage.getItem('maticBalance');
+      const centBalance = localStorage.getItem('centBalance');
+      // const otherParamsJSON = localStorage.getItem('otherParams');
+      // const otherParams = otherParamsJSON ? JSON.parse(otherParamsJSON) : [];
+
+      // Set parameters state
+      setParameters({ isConnected, maticBalance, centBalance });
+    }
+
+    // Listen for changes in local storage
+    window.addEventListener('storage', handleStorageChange);
+
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
   return (
     <>
-      <div className="text-2xl">isConnected : </div>
+      <div className="text-2xl">{isConnected ? 'connected' : 'isConnected'} : </div>
       <div className="flex-col justify-center align-center pt-3">
         <input
           id="cela"
