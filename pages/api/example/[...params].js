@@ -3,33 +3,51 @@
 // pages/api/example/[...params].js
 
 export default function handler(req, res) {
+  if (!req.query) {
+    res.status(500).json({ message: 'No Parameters found!.' });
+  } 
   const { params } = req.query;
 
   // Extracting multiple URL parameters
-  const { isConnected, maticBalance, centBalance, ...otherParams } = params;
+  const { ...otherParams } = params;
 
-  // Handle the parameters as needed
-  console.log('isConnected:', isConnected);
-  console.log('maticBalance:', maticBalance);
-  console.log('centBalance:', centBalance);
   console.log('Other Parameters:', otherParams);
+  /*
+    const storeParams = (name, data) => {
+      if (typeof window !== 'undefined') localStorage.setItem(name, data);
+    }
+  */
+  /* if (otherParams) {
 
-  // Store parameters in local storage if not undefined or null
-  if (isConnected !== undefined && isConnected !== null) {
-    localStorage.setItem('isConnected', isConnected);
-  }
-  if (maticBalance !== undefined && maticBalance !== null) {
-    localStorage.setItem('maticBalance', maticBalance);
-  }
-  if (centBalance !== undefined && centBalance !== null) {
-    localStorage.setItem('centBalance', centBalance);
-  }
-  if (otherParams.length > 0) {
-    // localStorage.setItem('otherParams', JSON.stringify(otherParams));
-    console.log(otherParams)
-  }
+    // Handle the parameters as needed
+    const isConnected = otherParams['0']
+    const maticBalance = otherParams['1']
+    const centBalance = otherParams['2']
 
-  // You can perform any additional processing or send a response
-  res.status(200).json({ message: 'Parameters stored in local storage.' });
+    console.log('isConnected:', isConnected);
+    console.log('maticBalance:', maticBalance);
+    console.log('centBalance:', centBalance);
+
+    // Store parameters in local storage if not undefined or null
+    if (isConnected !== undefined && isConnected !== null) {
+      storeParams('isConnected', isConnected)
+    }
+    if (maticBalance !== undefined && maticBalance !== null) {
+      storeParams('maticBalance', maticBalance);
+    }
+    if (centBalance !== undefined && centBalance !== null) {
+      storeParams('centBalance', centBalance);
+    }
+    if (otherParams.length > 0) {
+      // localStorage.setItem('otherParams', JSON.stringify(otherParams));
+      console.log(otherParams)
+    }
+
+    // You can perform any additional processing or send a response
+    res.status(200).json({ isConnected, maticBalance, centBalance });
+
+  } else {
+    res.status(500).json({ message: 'No Parameters found!.' });
+  } */
 }
 

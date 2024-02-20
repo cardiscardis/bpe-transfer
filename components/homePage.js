@@ -3,18 +3,21 @@ import React from "react"
 export default function HomePage() {
 
   const [parameters, setParameters] = React.useState()
-
+  const [walletAddress, setWalletAddress] = React.useState(false)
+  const [maticBalance, setMaticBalance] = React.useState()
+  const [centBalance, setCentBalance] = React.useState()
+/*
   React.useEffect(() => {
     const handleStorageChange = () => {
       // Update parameters state when local storage changes
-      const isConnected = localStorage.getItem('isConnected');
+      const walledtAddress = localStorage.getItem('walletAddress');
       const maticBalance = localStorage.getItem('maticBalance');
       const centBalance = localStorage.getItem('centBalance');
       // const otherParamsJSON = localStorage.getItem('otherParams');
       // const otherParams = otherParamsJSON ? JSON.parse(otherParamsJSON) : [];
 
       // Set parameters state
-      setParameters({ isConnected, maticBalance, centBalance });
+      setParameters({ walledtAddress, maticBalance, centBalance });
     }
 
     // Listen for changes in local storage
@@ -25,10 +28,11 @@ export default function HomePage() {
       window.removeEventListener('storage', handleStorageChange);
     };
   }, []);
-
+  console.log(isConnected, maticBalance, centBalance)
+*/
   return (
     <>
-      <div className="text-2xl">{isConnected ? 'connected' : 'isConnected'} : </div>
+      <div className="text-2xl">isConnected: {walletAddress ? walletAddress : ''} </div>
       <div className="flex-col justify-center align-center pt-3">
         <input
           id="cela"
